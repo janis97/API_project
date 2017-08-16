@@ -1,0 +1,24 @@
+version: '2'
+
+services:
+    api:
+        restart: always
+        container_name: container_api
+        image: api_rest
+        ports:
+            - 8082:80
+
+    releases:
+        restart: always
+        image: script_releases
+        container_name: container_releases
+
+    mysql:
+        restart: always
+        container_name: container_bdd
+        image: bdd
+        environment:
+            MYSQL_ROOT_PASSWORD: root
+            MYSQL_DATABASE: form
+            MYSQL_USER: janis
+            MYSQL_PASSWORD: root

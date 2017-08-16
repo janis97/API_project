@@ -1,0 +1,15 @@
+FROM php:7.1.7-apache
+
+ADD All_API/* /var/www/html/
+
+COPY 000-default.conf /etc/apache2/sites-available/000-default.conf
+
+RUN a2enmod rewrite
+
+RUN /usr/local/bin/docker-php-ext-install pdo pdo_mysql
+RUN /usr/local/bin/docker-php-ext-enable pdo pdo_mysql
+
+
+
+
+
